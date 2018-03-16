@@ -35,8 +35,14 @@ public class TShared extends Layout{
     public Excel objExcel;
     public Login objLogin;
 
-    public final String URL_TEST = "http://apricot.diginet.com.vn:4000/lw4auto/login";
+/*    public final String URL_TEST = "http://apricot.diginet.com.vn:4000/lw4auto/login";
     public final String USER_NAME = "dlq0401";
+    public final String USER_PASS = "123";*/
+/*    public final String URL_TEST = "http://hrm.elcom.com.vn/lemonhr/login";
+    public final String USER_NAME = "1001";
+    public final String USER_PASS = "123";*/
+    public final String URL_TEST = "http://apricot.diginet.com.vn:4000/lw4demo/login";
+    public final String USER_NAME = "lwadmin";
     public final String USER_PASS = "123";
 
     public final String PATH_SYSTEM = System.getProperty("user.dir");
@@ -107,10 +113,12 @@ public class TShared extends Layout{
             if(flag == true ){
                 WebElement element = driver.findElement(By.id(temp));
                 Boolean required = getAttribute(element);
-                System.out.println(temp);
-                if(required_int == 1) {
+                System.out.println(required);
+                if(required_int == 1 && required == false) {
                     test.log(LogStatus.PASS, cell_title);
-                }else if(required_int == 0){
+                }else if(required_int == 0 && required == true){
+                    test.log(LogStatus.FAIL, cell_title);
+                }else{
                     test.log(LogStatus.FAIL, cell_title);
                 }
             }
@@ -155,7 +163,7 @@ public class TShared extends Layout{
     @AfterSuite
     protected void afterSuite() {
         extent.close();
-        close_app();
+        //close_app();
     }
 }
 

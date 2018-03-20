@@ -1,6 +1,4 @@
 package auto.hack;
-import auto.utility.ExtentManager;
-import auto.utility.TShared;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -25,10 +23,11 @@ public class elcom{
 
     @Test(priority=1)
     public void demo() throws InterruptedException {
-        System.setProperty("webdriver.gecko.driver",PATH_GECKO_DRIVER);
+        //System.out.println("XXXX");
+        //System.setProperty("webdriver.gecko.driver",PATH_GECKO_DRIVER);
         this.driver = new FirefoxDriver();
         this.driver.get("http://hrm.elcom.com.vn/lemonhr/");
-        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+/*        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
         this.driver = driver;
@@ -48,6 +47,6 @@ public class elcom{
                 }
             }
         }
-        extent.close();
+        extent.close();*/
     }
 }

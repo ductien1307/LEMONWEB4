@@ -1,5 +1,6 @@
 package pages.W94;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +31,7 @@ public class W94F1200 {
     @FindBy(id = "cbbPlatformID")
     public WebElement cbbPlatformID;
 
-    @FindBy(id = "cbbReportGroupID")
+    @FindBy(xpath = ".//*[@id='cbbReportGroupID']")
     public WebElement cbbReportGroupID;
 
     @FindBy(id = "txtReportFileName")
@@ -57,6 +58,12 @@ public class W94F1200 {
     @FindBy(xpath = "//*[@id=\"frmD94F1200\"]/div[1]/div[1]/button[2]/i")
     public WebElement btn_close;
 
+    @FindBy(xpath = ".//div[@class='alert-success']")
+    public WebElement div_success_save;
+
+    @FindBy(xpath = ".//span[@id='err']")
+    public WebElement err_save;
+
     public void set_txtMReportID(String txtMReportID){
         this.txtMReportID.sendKeys(txtMReportID);
     }
@@ -67,10 +74,12 @@ public class W94F1200 {
         this.txtDisplayOrder.sendKeys(txtDisplayOrder);
     }
     public void set_cbbPlatformID(String cbbPlatformID){
-        select = new Select(this.cbbPlatformID);
-        select.selectByValue(cbbPlatformID);
+         this.cbbPlatformID.click();
+         select = new Select(this.cbbPlatformID);
+         select.selectByValue(cbbPlatformID);
     }
     public void set_cbbReportGroupID(String cbbReportGroupID){
+        this.cbbReportGroupID.click();
         select = new Select(this.cbbReportGroupID);
         select.selectByValue(cbbReportGroupID);
     }
@@ -80,7 +89,7 @@ public class W94F1200 {
     public void set_txtRemarkU(String txtRemarkU){
         this.txtRemarkU.sendKeys(txtRemarkU);
     }
-    public void chick_chooseW94F1200(){
+    public void click_chooseW94F1200(){
         this.chooseW94F1200.click();
     }
     public void click_resetW94F1200(){
@@ -94,5 +103,14 @@ public class W94F1200 {
     }
     public void click_btnThemMoi(){
         this.btnThemMoi.click();
+    }
+    public void click_btn_close(){
+        this.btn_close.click();
+    }
+    public String get_success_save(){
+        return div_success_save.getText();
+    }
+    public String get_err_save(){
+        return err_save.getText();
     }
 }

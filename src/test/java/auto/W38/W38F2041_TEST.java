@@ -1,3 +1,4 @@
+/*
 package auto.W38;
 
 import org.openqa.selenium.support.PageFactory;
@@ -15,7 +16,8 @@ import pages.W38.W38F2041;
 import pages.W38.W38F2040;
 
 public class W38F2041_TEST extends TShared {
-   /* W38F2041 objW38F2041;
+   */
+/* W38F2041 objW38F2041;
     W38F2040 objW38F2040;
     @Test(enabled = false)
     private void W38F2041_008() throws InterruptedException {
@@ -66,7 +68,8 @@ public class W38F2041_TEST extends TShared {
         Assert.assertEquals(SaveW38F2041, Boolean.TRUE);
         Assert.assertEquals(NotSaveW38F2041, Boolean.TRUE);
         Assert.assertEquals(NextW38F2041, Boolean.FALSE);
-    }*/
+    }*//*
+
 
     @Test(priority = 1)
 
@@ -74,11 +77,13 @@ public class W38F2041_TEST extends TShared {
         W38F2040 W38F2040 = new W38F2040(driver);
         //W38F2040 objW38F2040 = PageFactory.initElements(driver,W38F2040.class);
         W38F2041 objW38F2041 = new W38F2041(driver);
+*/
 /*        DataBase objDb = new DataBase();
         ResultSet rs = objDb.get_data("EXEC W38P2005 'TSCO','DLQ0401', 'TrainingField','',''");
         while (rs.next()){
             System.out.println(rs.getString(2));
-        }*/
+        }*//*
+
 
         test = extent.startTest("W38F2041");
         clickMenuDaoTao();
@@ -96,3 +101,4 @@ public class W38F2041_TEST extends TShared {
 
 }
 
+*/

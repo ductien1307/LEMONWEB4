@@ -35,12 +35,13 @@ public class TShared extends Layout{
     public Excel objExcel;
     public Login objLogin;
 
-/*    public final String URL_TEST = "http://apricot.diginet.com.vn:4000/lw4auto/login";
+/*
+    public final String URL_TEST = "http://apricot.diginet.com.vn:4000/lw4auto/login";
     public final String USER_NAME = "dlq0401";
-    public final String USER_PASS = "123";*/
-/*    public final String URL_TEST = "http://hrm.elcom.com.vn/lemonhr/login";
-    public final String USER_NAME = "1001";
-    public final String USER_PASS = "123";*/
+    public final String USER_PASS = "123";
+*/
+
+
     public final String URL_TEST = "http://apricot.diginet.com.vn:4000/lw4demo/login";
     public final String USER_NAME = "lwadmin";
     public final String USER_PASS = "123";
@@ -49,6 +50,7 @@ public class TShared extends Layout{
     public final String PATH_GECKO_DRIVER = PATH_SYSTEM + "\\geckodriver.exe";
     public final String PATH_TESTDATA = PATH_SYSTEM + "\\src\\main\\resources\\testdata";
     public final String PATH_REPORT = PATH_SYSTEM + "\\src\\main\\resources\\report\\report.html";
+    public final String PATH_IMAGES = PATH_SYSTEM + "\\src\\main\\resources\\images\\";
 
     public final String STR_VALIDATE_SEL_EN = "Please select an item in the list.";
     public final String STR_VALIDATE_TEXTBOX_EN = "Please fill out this field.";
@@ -64,25 +66,7 @@ public class TShared extends Layout{
             e.printStackTrace();
         }
     }
-    public void checkPageIsReady() {
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        //Initially bellow given if condition will check ready state of page.
-        if (js.executeScript("return document.readyState").toString().equals("complete")){
-            System.out.println("Page Is loaded.");
-            return;
-        }
-        //This loop will rotate for 25 times to check If page Is ready after every 1 second.
-        //You can replace your value with 25 If you wants to Increase or decrease wait time.
-        for (int i=0; i<25; i++){
-            try {
-                Thread.sleep(1000);
-            }catch (InterruptedException e) {}
-            //To check page ready state.
-            if (js.executeScript("return document.readyState").toString().equals("complete")){
-                break;
-            }
-        }
-    }
+
     public String getValidationMessage(WebElement element){
         return element.getAttribute("validationMessage");
     }
@@ -146,7 +130,7 @@ public class TShared extends Layout{
 
     @BeforeSuite
     public void beforeSuite() throws InterruptedException {
-        System.setProperty("webdriver.gecko.driver",PATH_GECKO_DRIVER);
+        //System.setProperty("webdriver.gecko.driver",PATH_GECKO_DRIVER);
         this.driver = new FirefoxDriver();
         this.driver.get(URL_TEST);
         this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -161,8 +145,10 @@ public class TShared extends Layout{
     }
 
     @AfterSuite
-    protected void afterSuite() {
+    protected void afterSuite() throws InterruptedException {
         extent.close();
+        //Thread.sleep(3000);
+        //driver.quit();
         //close_app();
     }
 }

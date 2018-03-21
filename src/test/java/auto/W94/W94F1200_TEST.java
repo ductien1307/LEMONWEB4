@@ -46,7 +46,6 @@ public class W94F1200_TEST extends TShared {
         objW94F1200.set_txtRemarkU("note 01");
         objW94F1200.click_chooseW94F1200();
 
-
         Robot robot = new Robot();
         StringSelection stringselection = new StringSelection(PATH_IMAGES + "image.png");
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringselection,null);
@@ -64,12 +63,13 @@ public class W94F1200_TEST extends TShared {
             element = waitForElement(10,objW94F1200.success_save);
             String success_save = element.getText();
             System.out.println(success_save);
-            if(success_save == "Dữ liệu đã được lưu thành công."){
+            if(success_save.contains("Dữ liệu đã được lưu thành công.")){
                 test.log(LogStatus.PASS,"Pass");
             }
         }catch (Exception e){
             test.log(LogStatus.FAIL,"Fail");
         }
+        objW94F1200.click_btn_close();
     }
 
 }

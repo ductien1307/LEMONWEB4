@@ -14,6 +14,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -23,6 +24,8 @@ import org.testng.annotations.BeforeSuite;
 
 import pages.WP.Layout;
 import pages.WP.Login;
+
+import javax.swing.text.Element;
 
 
 public class TShared extends Layout{
@@ -110,6 +113,12 @@ public class TShared extends Layout{
 
     }
 
+    public WebElement waitForElement(int seconds, WebElement ele){
+        wait = new WebDriverWait(driver, seconds);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+        return element;
+    }
+
     @BeforeClass()
     public void setup() throws InterruptedException {
         //System.out.println("BeforeClass");
@@ -118,11 +127,12 @@ public class TShared extends Layout{
     @AfterMethod
     protected void afterMethod(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE) {
-            test.log(LogStatus.FAIL, result.getThrowable());
+            test.log(LogStatus.FAIL, "Test Failed");
+            //test.log(LogStatus.FAIL, result.getThrowable());
         } else if (result.getStatus() == ITestResult.SKIP) {
             test.log(LogStatus.SKIP, "Test skipped " + result.getThrowable());
         } else {
-            //test.log(LogStatus.PASS, "Test passed");
+            // test.log(LogStatus.PASS, "Test passed");
         }
         extent.endTest(test);
         extent.flush();

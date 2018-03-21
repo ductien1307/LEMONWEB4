@@ -58,8 +58,8 @@ public class W94F1200 {
     @FindBy(xpath = "//*[@id=\"frmD94F1200\"]/div[1]/div[1]/button[2]/i")
     public WebElement btn_close;
 
-    @FindBy(xpath = ".//div[@class='alert-success']")
-    public WebElement div_success_save;
+    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissable']")
+    public WebElement success_save;
 
     @FindBy(xpath = ".//span[@id='err']")
     public WebElement err_save;
@@ -108,7 +108,7 @@ public class W94F1200 {
         this.btn_close.click();
     }
     public String get_success_save(){
-        return div_success_save.getText();
+        return success_save.getText();
     }
     public String get_err_save(){
         return err_save.getText();

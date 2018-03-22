@@ -64,6 +64,21 @@ public class W94F1200 {
     @FindBy(xpath = ".//span[@id='err']")
     public WebElement err_save;
 
+    @FindBy(xpath = "//*[@id='pqgrid_W94F1200']/div[2]/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/a[2]/i")
+    public WebElement btn_delete_main;
+
+    @FindBy(xpath = "//*[@id='pqgrid_W94F1200']/div[2]/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/a[1]/i")
+    public WebElement btn_edit_main;
+
+    @FindBy(xpath = "//*[@id='frm_btnedit']")
+    public WebElement btn_edit_detail;
+
+    @FindBy(xpath = "//*[@id='divConfirm']/div/div[3]/button[1]")
+    public WebElement btn_delete_yes_alert;
+
+    @FindBy(xpath = "//*[@id='divConfirm']/div/div[3]/button[2]")
+    public WebElement btn_delete_no_alert;
+
     public void set_txtMReportID(String txtMReportID){
         this.txtMReportID.sendKeys(txtMReportID);
     }
@@ -112,5 +127,17 @@ public class W94F1200 {
     }
     public String get_err_save(){
         return err_save.getText();
+    }
+    public void click_btn_delete_main(){
+        this.btn_delete_main.click();
+    }
+    public void click_btn_edit_main(){
+        this.btn_edit_main.click();
+    }
+    public void click_btn_edit_detail(){
+        this.btn_edit_detail.click();
+    }
+    public void click_btn_delete_yes_alert(){
+        this.btn_delete_yes_alert.click();
     }
 }

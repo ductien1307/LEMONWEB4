@@ -52,7 +52,7 @@ public class TShared extends Layout{
     public final String PATH_SYSTEM = System.getProperty("user.dir");
     public final String PATH_GECKO_DRIVER = PATH_SYSTEM + "\\geckodriver.exe";
     public final String PATH_TESTDATA = PATH_SYSTEM + "\\src\\main\\resources\\testdata";
-    public final String PATH_REPORT = PATH_SYSTEM + "\\src\\main\\resources\\report\\report.html";
+    public final String PATH_REPORT = PATH_SYSTEM + "\\src\\main\\resources\\report\\index.html";
     public final String PATH_IMAGES = PATH_SYSTEM + "\\src\\main\\resources\\images\\";
 
     public final String STR_VALIDATE_SEL_EN = "Please select an item in the list.";
